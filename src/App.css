@@ -15,3 +15,11 @@ button {
 button:focus {
   outline: none;
 }
+
+li span[data-complete='true'] {
+  text-decoration: line-through;
+}
+
+li span {
+  cursor: pointer;
+}
