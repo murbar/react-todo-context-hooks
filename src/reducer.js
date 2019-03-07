@@ -1,3 +1,5 @@
+import uuid from 'uuid/v4';
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_TODO':
@@ -7,6 +9,34 @@ const reducer = (state, action) => {
           if (task.id === action.id) return { ...task, complete: !task.complete };
           return task;
         })
+      };
+    case 'ADD_TODO':
+      const newTodo = {
+        id: uuid(),
+        text: action.text,
+        complete: false
+      };
+      return {
+        ...state,
+        todos: [...state.todos, newTodo]
+      };
+    case 'SET_EDITING_TODO':
+      return {
+        ...state,
+        currentlyEditing: state.todos.find(t => t.id === action.id)
+      };
+    case 'UPDATE_TODO':
+      const updatedTodo = { ...state.currentlyEditing, text: action.text };
+      const updatedTodoIndex = state.todos.findIndex(t => t.id === state.currentlyEditing.id);
+      const todos = [
+        ...state.todos.slice(0, updatedTodoIndex),
+        updatedTodo,
+        ...state.todos.slice(updatedTodoIndex + 1)
+      ];
+      return {
+        ...state,
+        currentlyEditing: {},
+        todos
       };
     case 'REMOVE_TODO':
       return {
