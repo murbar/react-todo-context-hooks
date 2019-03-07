@@ -2,14 +2,17 @@ import React, { useContext, useReducer } from 'react';
 import TodosContext from './context';
 import todosReducer from './reducer';
 import TodoList from './components/TodoList';
+import './App.css';
 
 const App = () => {
   const initialState = useContext(TodosContext);
   const [state, dispatch] = useReducer(todosReducer, initialState);
 
+  const title = state.todos.length > 0 ? `${state.todos.length} to-dos` : 'Nothing to-do';
+
   return (
     <TodosContext.Provider value={{ state, dispatch }}>
-      <h1>Todo list</h1>
+      <h1>{title}</h1>
       <TodoList />
     </TodosContext.Provider>
   );
