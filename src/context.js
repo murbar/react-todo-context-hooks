@@ -17,7 +17,8 @@ const TodosContext = React.createContext({
       text: 'walk dogs',
       complete: true
     }
-  ]
+  ],
+  currentlyEditing: {}
 });
 
 export default TodosContext;
