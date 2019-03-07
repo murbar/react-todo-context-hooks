@@ -9,7 +9,11 @@ const AddTodo = () => {
   } = useContext(TodosContext);
 
   useEffect(() => {
-    if (currentlyEditing.text) setTodoText(currentlyEditing.text);
+    if (currentlyEditing.text) {
+      setTodoText(currentlyEditing.text);
+    } else {
+      setTodoText('');
+    }
   }, [currentlyEditing]);
 
   const handleSubmit = e => {
@@ -24,7 +28,12 @@ const AddTodo = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" onChange={e => setTodoText(e.target.value)} value={todoText} />
+      <input
+        type="text"
+        onChange={e => setTodoText(e.target.value)}
+        value={todoText}
+        placeholder="Add todo..."
+      />
       <button>
         <img src="https://icon.now.sh/add/eeeeee" alt="Edit" />
       </button>
