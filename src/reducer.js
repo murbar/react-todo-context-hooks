@@ -39,9 +39,11 @@ const reducer = (state, action) => {
         todos
       };
     case 'REMOVE_TODO':
+      const isRemovedTodo = state.currentlyEditing.id === action.id ? {} : state.currentlyEditing;
       return {
         ...state,
-        todos: state.todos.filter(todo => todo.id !== action.id)
+        todos: state.todos.filter(todo => todo.id !== action.id),
+        currentlyEditing: isRemovedTodo
       };
     default:
       return state;
