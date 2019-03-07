@@ -1,0 +1,17 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background: #222;
+  color: #eee;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+button:focus {
+  outline: none;
+}
