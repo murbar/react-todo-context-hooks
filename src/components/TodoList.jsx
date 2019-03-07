@@ -15,7 +15,7 @@ const TodoList = () => {
             >
               {todo.text}
             </span>
-            <button>
+            <button onClick={() => dispatch({ type: 'SET_EDITING_TODO', id: todo.id })}>
               <img src="https://icon.now.sh/edit/eeeeee" alt="Edit" />
             </button>
             <button onClick={() => dispatch({ type: 'REMOVE_TODO', id: todo.id })}>
