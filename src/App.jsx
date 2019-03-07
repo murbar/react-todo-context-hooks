@@ -3,6 +3,7 @@ import TodosContext from './context';
 import todosReducer from './reducer';
 import TodoList from './components/TodoList';
 import './App.css';
+import AddTodo from './components/AddTodo';
 
 const App = () => {
   const initialState = useContext(TodosContext);
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <TodosContext.Provider value={{ state, dispatch }}>
       <h1>{title}</h1>
+      <AddTodo />
       <TodoList />
     </TodosContext.Provider>
   );
