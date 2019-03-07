@@ -5,6 +5,12 @@ html {
 body {
   background: #222;
   color: #eee;
+  padding: 2rem 1rem;
+}
+
+main {
+  max-width: 20rem;
+  margin: 0 auto;
 }
 
 button {

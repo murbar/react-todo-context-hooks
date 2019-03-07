@@ -13,9 +13,11 @@ const App = () => {
 
   return (
     <TodosContext.Provider value={{ state, dispatch }}>
-      <h1>{title}</h1>
-      <AddTodo />
-      <TodoList />
+      <main>
+        <h1>{title}</h1>
+        <AddTodo />
+        <TodoList />
+      </main>
     </TodosContext.Provider>
   );
 };
